@@ -34,10 +34,16 @@ public class AboutStream {
             System.out.println(k+":"+v);
         });
     }
+    public static void listByFilter(){
+        userList = userList.stream().filter(User -> User.getId() .equals("1001")).collect(Collectors.toList());
+        userList.forEach(user-> System.out.println("user="+user));
+    }
 
     public static void main(String[] args) {
-        listExtractParam();
+//        listExtractParam();
+//        System.out.println("============");
+//        listToMap();
         System.out.println("============");
-        listToMap();
+        listByFilter();
     }
 }
