@@ -19,5 +19,35 @@
             </plugin>
         </plugins>
     </build>
+    <!--<repositories>-->
+        <!--&lt;!&ndash; 如有Nexus私服, 取消注释并指向正确的服务器地址. &ndash;&gt;-->
+        <!--<repository>-->
+            <!--<id>nexus</id>-->
+            <!--<name>Nexus Repository</name>-->
+            <!--<url>http://121.43.153.227:8088/nexus/content/groups/public</url>-->
+            <!--&lt;!&ndash;<url>http://10.252.162.234:8088/nexus/content/groups/public</url>&ndash;&gt;-->
+        <!--</repository>-->
+    <!--</repositories>-->
+
+    <properties>
+            <http.version>4.3</http.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcomponents-core</artifactId>
+            <version>${http.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+    </dependencies>
 
 </project>
