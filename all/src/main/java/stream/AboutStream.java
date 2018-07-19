@@ -2,10 +2,7 @@ package stream;
 
 import stream.objects.User;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -55,6 +52,13 @@ public class AboutStream {
         newUserList.forEach(user-> System.out.println("user="+user));
         newUserList = userList.stream().filter(User -> User.getAge() == 23).collect(Collectors.toList());
         newUserList.forEach(user-> System.out.println("user="+user));
+    }
+    public static void listSort(){
+        //        //排序
+        List<User> demoSort = userList.stream().sorted(Comparator.comparing(User::getName)).collect(Collectors.toList());
+        List<User> demoSort2 = userList.stream().sorted((u1, u2) -> u2.getName().compareTo(u1.getName())).collect(Collectors.toList());
+        List<User> demoSort3 = userList.stream().sorted(Comparator.comparingInt(User::getAge)).collect(Collectors.toList());
+
     }
 
     public static void main(String[] args) {

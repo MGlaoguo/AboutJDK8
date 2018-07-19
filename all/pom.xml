@@ -44,6 +44,11 @@
             <version>3.3.1</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId></artifactId>
+        </dependency>
+        <!-- logger-->
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.2</version>

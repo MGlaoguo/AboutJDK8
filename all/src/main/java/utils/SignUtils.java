@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +25,13 @@ public class SignUtils {
      */
     public static String getMessageDigestHexEncoded(String msg,String algorithm){
 //        try {
+//        try {
 //            MessageDigest md = MessageDigest.getInstance(algorithm);
+//            byte[] bytes = md.digest(msg.getBytes(Consts.));
+//            return Hex.encodeHexString(bytes);
+//        } catch (NoSuchAlgorithmException e) {
+//            e.printStackTrace();
+//        }
 //            byte[] bytes = md.digest(msg.getBytes(Consts.));
 //            return Hex.encodeHexString(bytes);
 //        } catch (NoSuchAlgorithmException e) {
