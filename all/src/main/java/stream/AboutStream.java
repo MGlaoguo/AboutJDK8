@@ -14,14 +14,17 @@ public class AboutStream {
         User user2 = new User("2001", 22,"li","hangzhou",190.5,80);
         User user3 = new User("3001", 23,"wang","shanghai",200.5,90);
         User user4 = new User("4001", 23,"wang","hubei",200.5,90);
+        User user5 = new User("4001", 23,"wang","hubei",200.5,90);
         userList.add(user1);
         userList.add(user2);
         userList.add(user3);
         userList.add(user4);
+        userList.add(user5);
         userMap.put("user1",user1);
         userMap.put("user2",user2);
         userMap.put("user3",user3);
         userMap.put("user4",user4);
+        userMap.put("user5",user5);
     }
 
     /**
@@ -38,7 +41,7 @@ public class AboutStream {
      */
     public static void listToMap(){
         Map<String, User> userMap = userList.stream().collect(Collectors.toMap(User::getId, Function.identity()));
-        userMap.forEach((k,v)->{
+        userMap .forEach((k,v)->{
             System.out.println(k+":"+v);
         });
     }
@@ -60,6 +63,16 @@ public class AboutStream {
         List<User> demoSort3 = userList.stream().sorted(Comparator.comparingInt(User::getAge)).collect(Collectors.toList());
 
     }
+    public static void listGroup(){
+        Map<String,List<User>> userListMap = userList.stream().collect(Collectors.groupingBy(User::getAddress));
+        for(Map.Entry<String, List<User>> entry:userListMap.entrySet()) {
+            System.out.println(entry.getKey());
+            for (User user : entry.getValue()) {
+                System.out.println(user);
+            }
+        }
+
+    }
 
     public static void main(String[] args) {
 //        listExtractParam();
@@ -68,5 +81,6 @@ public class AboutStream {
 //        https://blog.csdn.net/u014676619/article/details/78373897
 //        System.out.println("============");
 //        listByFilter();
+        listGroup();
     }
 }
