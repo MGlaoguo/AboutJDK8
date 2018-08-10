@@ -47,22 +47,43 @@ public class AboutStream {
     }
 
     /**
+     * 获取对象参数集合
+     */
+    public static void listParamList(){
+        List<String> idList = userList.stream().map(User::getId).distinct().collect(Collectors.toList());
+        idList .forEach(System.out::println);
+    }
+
+    /**
      * filter list by condition
      */
     public static void listByFilter(){
         List<User> newUserList = new ArrayList<>();
-        newUserList = userList.stream().filter(User -> User.getId() .equals("1001")).collect(Collectors.toList());
+        newUserList = userList.stream().filter(user -> user.getId() .equals("1001")).collect(Collectors.toList());
         newUserList.forEach(user-> System.out.println("user="+user));
-        newUserList = userList.stream().filter(User -> User.getAge() == 23).collect(Collectors.toList());
+        newUserList = userList.stream().filter(user -> user.getAge() == 23).collect(Collectors.toList());
         newUserList.forEach(user-> System.out.println("user="+user));
     }
+
+    /**
+     * list排序
+     */
     public static void listSort(){
         //        //排序
         List<User> demoSort = userList.stream().sorted(Comparator.comparing(User::getName)).collect(Collectors.toList());
+        System.out.println("==================demoSort================");
+        System.out.println(demoSort);
         List<User> demoSort2 = userList.stream().sorted((u1, u2) -> u2.getName().compareTo(u1.getName())).collect(Collectors.toList());
+        System.out.println("==================demoSort================");
+        System.out.println(demoSort2);
         List<User> demoSort3 = userList.stream().sorted(Comparator.comparingInt(User::getAge)).collect(Collectors.toList());
-
+        System.out.println("==================demoSort================");
+        System.out.println(demoSort3);
     }
+
+    /**
+     * list分组
+     */
     public static void listGroup(){
         Map<String,List<User>> userListMap = userList.stream().collect(Collectors.groupingBy(User::getAddress));
         for(Map.Entry<String, List<User>> entry:userListMap.entrySet()) {
@@ -81,6 +102,7 @@ public class AboutStream {
 //        https://blog.csdn.net/u014676619/article/details/78373897
 //        System.out.println("============");
 //        listByFilter();
-        listGroup();
+//        listGroup();
+        listParamList();
     }
 }
